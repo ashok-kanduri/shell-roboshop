@@ -14,7 +14,7 @@ SCRIPT_DIR=$PWD
 mkdir -p $LOGS_FOLDER
 echo script started executing at $(date) | tee -a $LOG_FILE
 
-if [ USERID -ne 0 ]
+if [ $USERID -ne 0 ]
 then 
     echo -e "$R ERROR:: please access using root access $N" | tee -a $LOG_FILE
     exit 1
