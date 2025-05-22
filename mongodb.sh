@@ -1,10 +1,10 @@
 #!/bin/bash
 
-USERID=(id -u)
-R=\e[31m
-G=\e[32m
-Y=\e[33m
-N=\e[0m
+USERID=$(id -u)
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 LOGS_FOLDER="/var/log/roboshop-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
@@ -47,5 +47,5 @@ VALIDATE $? "starting mongodb"
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 VALIDATE $? "editing mongodb conf file for remote access"
 
-systectl restart mongod &>>$LOG_FILE
+systemctl restart mongod &>>$LOG_FILE
 VALIDATE $? "restarting mongodb"
