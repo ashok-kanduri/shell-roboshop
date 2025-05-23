@@ -76,7 +76,7 @@ VALIDATE $? "Daemon reload"
 systemctl enable shipping &>>$LOG_FILE
 VALIDATE $? "Enabling shipping"
 
-systemctl start shippingVALIDATE $?
+systemctl start shipping
 VALIDATE $? "Starting shipping"
 
 dnf install mysql -y &>>$LOG_FILE
