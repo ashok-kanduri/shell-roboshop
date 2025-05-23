@@ -1,5 +1,6 @@
 #!/bin/bash
 
+START_TIME=$(date +%s)
 USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
@@ -49,7 +50,7 @@ then
     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
     VALIDATE $? "creating roboshop system user"
 else 
-    echo -e "$Y system user roboshop already created $N"
+    echo -e "system user roboshop already created... $Y SKIPPING $N"
 fi
 
 mkdir -p /app
@@ -77,3 +78,8 @@ VALIDATE $? "enabling cart"
 
 systemctl start cart 
 VALIDATE $? "starting cart"
+
+END_TIME=$(date +%s)
+TOTAL_TIME=$(( $END_TIME - $START_TIME ))
+
+echo -e "script execution completed succesfully, $Y time taken: $TOTAL_TIME seconds $N" | tee -a $LOG_FILE
