@@ -85,7 +85,7 @@ then
     mongosh --host mongodb.kashok.store </app/db/master-data.js &>>$LOG_FILE
     VALIDATE $? "Loading data into mongodb"
 else 
-    echo -e "$Y Data is already loaded...$N"
+    echo -e "Data is already loaded... $Y SKIPPING $N"
 fi
 
 END_TIME=$(date +%s)
