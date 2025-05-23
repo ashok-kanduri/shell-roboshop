@@ -74,6 +74,6 @@ systemctl start payment
 VALIDATE $? "Starting payment"
 
 END_TIME=$(date +%s)
-TOTAL_TIME=(( $END_TIME - $START_TIME ))
+TOTAL_TIME=$(( $END_TIME - $START_TIME ))
 
 echo -e "script execution completed succesfully, $Y time taken: $TOTAL_TIME seconds $N" | tee -a $LOG_FILE
